@@ -1,0 +1,14 @@
+@mixin offset-shadow {
+  box-shadow: 6px 6px 0 #7d3408;
+}
+
+@mixin checkerboard {
+  background: repeating-conic-gradient(#ee2a16 0 25%, #fbb08a 0 50%) 0 0 / 240px 240px;
+}
+
+@mixin sticker-text {
+  -webkit-text-stroke: 0.14em #fff;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+  text-shadow: 3px 3px 0 #7d3408;
+}

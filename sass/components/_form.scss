@@ -1,0 +1,30 @@
+@use "../abstracts";
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 520px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 3px solid abstracts.$dark;
+  border-radius: 10px;
+  background: abstracts.$white;
+  color: abstracts.$dark;
+  font: inherit;
+  @include abstracts.offset-shadow;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 9rem;
+}
+
+.contact-form .btn {
+  align-self: flex-end;
+  margin-top: 1.25rem;
+}
