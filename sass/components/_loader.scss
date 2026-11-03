@@ -43,10 +43,10 @@
 }
 
 @keyframes loader-beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
+  0%, 100% {transform: scale(1);}
+  50% {transform: scale(1.15);}
 }
 
 @include abstracts.reduced-motion {
-  .loader__logo { animation: none; }
+  .loader__logo {animation: none;}
 }

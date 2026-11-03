@@ -51,12 +51,12 @@ model-viewer {
     pointer-events: none;
   }
 
-  &.active::after { border-color: abstracts.$ink; }
+  &.active::after {border-color: abstracts.$ink;}
 }
 
 @keyframes hotspot-pulse {
-  0% { opacity: 0.9; transform: scale(0.8); }
-  100% { opacity: 0; transform: scale(1.8); }
+  0% {opacity: 0.9; transform: scale(0.8);}
+  100% {opacity: 0; transform: scale(1.8);}
 }
 
 .HotspotAnnotation {
@@ -83,5 +83,5 @@ model-viewer {
 }
 
 @include abstracts.reduced-motion {
-  .Hotspot::after { animation: none; }
+  .Hotspot::after {animation: none;}
 }
