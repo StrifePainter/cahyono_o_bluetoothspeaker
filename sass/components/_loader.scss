@@ -18,14 +18,14 @@
   }
 }
 
-.loader__logo {
+.loader-logo {
   font-size: 2rem;
   font-weight: 800;
   color: abstracts.$orange;
   animation: loader-beat 1s ease-in-out infinite;
 }
 
-.loader__track {
+.loader-track {
   width: 60%;
   max-width: 240px;
   height: 6px;
@@ -48,5 +48,5 @@
 }
 
 @include abstracts.reduced-motion {
-  .loader__logo {animation: none;}
+  .loader-logo {animation: none;}
 }
