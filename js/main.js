@@ -20,7 +20,7 @@ const infoBoxes = {
   },
   sound: {
     title: 'Powerful Sound',
-    text: 'Small footprint, effortless sound. PULSE puts a high-output 50mm full-range driver right at the center of your listening environment, projecting from both sides of the speaker. Delivering 10W of clear, room-filling sound, it balances sparkling high frequencies and rich vocal clarity with surprisingly robust bass performance.,
+    text: 'Small footprint, effortless sound. PULSE puts a high-output 50mm full-range driver right at the center of your listening environment, projecting from both sides of the speaker. Delivering 10W of clear, room-filling sound, it balances sparkling high frequencies and rich vocal clarity with surprisingly robust bass performance.',
     image: 'images/speaker.svg'
   },
   controls: {
