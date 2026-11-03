@@ -14,7 +14,7 @@
   color: abstracts.$white;
 }
 
-.nav__logo {
+.nav-logo {
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -22,7 +22,7 @@
   text-decoration: none;
 }
 
-.nav__links {
+.navigation-links {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -34,7 +34,7 @@
   }
 }
 
-.nav__toggle {
+.navigation-toggle {
   display: none;
   width: 44px;
   height: 44px;

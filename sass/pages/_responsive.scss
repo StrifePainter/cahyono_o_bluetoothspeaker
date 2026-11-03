@@ -2,9 +2,9 @@
 
 @media (max-width: 767px) {
   
-  .nav__toggle { display: block; }
-  .nav--open .nav__toggle { background-image: url(../images/close.svg);}
-  .nav__links {
+  .navigation-toggle { display: block; }
+  .nav--open .navigation-toggle { background-image: url(../images/close.svg);}
+  .navigation-links {
     position: absolute;
     top: abstracts.$nav-height;
     left: 0;
@@ -19,12 +19,12 @@
       padding: 1rem 1.5rem;
     }
   }
-  .nav--open .nav__links { max-height: 320px; }
+  .nav--open .navigation-links { max-height: 320px; }
 }
 
 @media (min-width: 768px) {
   .nav { padding: 0 2rem; }
-  .nav__links {
+  .navigation-links {
     display: flex;
     align-items: center;
     gap: 1.75rem;
@@ -37,7 +37,7 @@
       &:hover { border-color: abstracts.$white; }
     }
 
-    .nav__cta {
+    .nav-cta {
       padding: 0.5rem 1.25rem;
       border: 0;
       border-radius: 999px;
@@ -46,8 +46,8 @@
     }
   }
 
-  .hero__text { font-size: 1.25rem; }
-  .explore { padding: 4rem 2rem; }
+  .hero-text {font-size: 1.25rem;}
+  .explore {padding: 4rem 2rem; }
 
-  model-viewer { height: 70vh; }
+  model-viewer {height: 70vh;}
 }

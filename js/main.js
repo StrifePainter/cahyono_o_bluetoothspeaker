@@ -6,7 +6,7 @@ const loader = document.querySelector(".progress-bar");
 const updateBar = document.querySelector(".update-bar");
 const nav = document.querySelector("#nav");
 const navToggle = document.querySelector("#nav-toggle");
-const navLinks = document.querySelectorAll(".nav__links a");
+const navLinks = document.querySelectorAll(".navigation-links a");
 const info = document.querySelector("#info");
 const infoImage = document.querySelector("#info-img");
 const infoTitle = document.querySelector("#info-title");
@@ -15,7 +15,7 @@ const infoText = document.querySelector("#info-text");
 const infoBoxes = {
   intro: {
     title: 'Meet Pulse',
-    text: 'Tap a hotspot on the speaker to explore its features.',
+    text: 'Tap a hotspot on the speaker to explore its features!',
     image: 'images/hotspot.svg'
   },
   sound: {
@@ -39,6 +39,8 @@ const infoBoxes = {
     image: 'images/on-the-go.svg'
   }
 };
+
+// Functions
 
 function updateInfoContent(data) {
   infoImage.src = data.image;
@@ -70,7 +72,6 @@ function selectHotspot(event) {
 
 function updateProgress(event) {
   const progress = event.detail.totalProgress;
-
   updateBar.style.transform = `scaleX(${progress})`;
 
   if (progress === 1) {
@@ -97,8 +98,8 @@ function closeNav() {
 function playHeroIntro() {
   gsap.timeline({ defaults: { ease: "power3.out" } })
     .from(".nav", { yPercent: -100, duration: 0.6 })
-    .from(".hero__title", { y: 40, autoAlpha: 0, duration: 0.8 }, "-=0.2")
-    .from(".hero__text", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.4")
+    .from(".hero-title", { y: 40, autoAlpha: 0, duration: 0.8 }, "-=0.2")
+    .from(".hero-text", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.4")
     .from(".hero .btn", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.3");
 }
 
