@@ -1,5 +1,7 @@
 (function initPulse() {
 
+// Variables
+
 const viewer = document.querySelector("model-viewer");
 const hotspots = document.querySelectorAll(".Hotspot");
 const loader = document.querySelector(".progress-bar");
@@ -105,6 +107,8 @@ function playHeroIntro() {
 
 showInfo("intro");
 playHeroIntro();
+
+// Event Listeners
 
 for (const hotspot of hotspots) {
   hotspot.addEventListener("click", selectHotspot);
