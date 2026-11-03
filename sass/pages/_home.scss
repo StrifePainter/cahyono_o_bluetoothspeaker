@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.explore {
+  padding: 3rem 1.25rem;
+
+  @include tablet { padding: 4rem 2rem; }
+}
+
+.explore__title {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  text-align: center;
+  color: $orange-dark;
+}
