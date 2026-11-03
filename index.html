@@ -11,29 +11,29 @@
   </head>
   <body>
     <header class="nav" id="nav">
-      <a class="nav__logo" href="#home">Pulse</a>
+      <a class="nav-logo" href="#home">Pulse</a> <!-- tentative bluetooth name -->
       <nav>
-        <ul class="nav__links" id="nav-links">
+        <ul class="navigation-links" id="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#explore">Explore</a></li>
           <li><a href="#explore">View in AR</a></li>
-          <li><a class="nav__cta" href="#explore">Pre-order</a></li>
+          <li><a class="nav-cta" href="#explore">Pre-order</a></li>
         </ul>
       </nav>
-      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"></button>
+      <button class="navigation-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"></button>
     </header>
 
     <main>
       <section class="hero" id="home">
-        <div class="hero__content">
-          <h1 class="hero__title">Pulse</h1>
-          <p class="hero__text">Feel every beat. Big, room-filling sound in a speaker you can take anywhere.</p>
+        <div class="hero-content">
+          <h1 class="hero-title">Pulse</h1>
+          <p class="hero-text">Feel every beat. Big, room-filling sound in a speaker you can take anywhere.</p>
           <a class="btn" href="#explore">Explore Pulse</a>
         </div>
       </section>
 
       <section class="explore" id="explore">
-        <h2 class="explore__title">Explore Pulse</h2>
+        <h2 class="explore-title">Explore Pulse</h2>
 
         <div class="viewer">
           <!-- <model-viewer> HTML element -->
@@ -51,7 +51,6 @@
               <div class="HotspotAnnotation">USB-C Port</div>
             </button>
 
-            <!-- Custom loader -->
             <div class="progress-bar" slot="progress-bar">
               <span class="loader__logo">Pulse</span>
               <div class="loader__track"><div class="update-bar"></div></div>
@@ -60,9 +59,9 @@
           </model-viewer>
 
           <div class="info" id="info">
-            <img class="info__icon" id="info-img" src="images/hotspot.svg" alt="">
+            <img class="info-icon" id="info-img" src="images/hotspot.svg" alt="">
             <div>
-              <h3 class="info__title" id="info-title"></h3>
+              <h3 class="information-title" id="info-title"></h3>
               <p class="info__text" id="info-text"></p>
             </div>
           </div>
