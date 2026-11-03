@@ -1,11 +1,7 @@
 @use '../abstracts';
 
-// Mobile and tablet rules live here. This file is loaded last (see pages/_index.scss),
-// so it overrides the shared base styles in components/.
-
-// MOBILE: up to 767px
 @media (max-width: 767px) {
-  // hamburger button + dropdown menu
+  // hamburger button and drop menu animation plsu styles
   .nav__toggle { display: flex; }
 
   .nav--open .nav__toggle {
@@ -33,11 +29,9 @@
   .nav--open .nav__links { max-height: 320px; }
 }
 
-// TABLET AND UP: 768px+
 @media (min-width: 768px) {
   .nav { padding: 0 2rem; }
 
-  // links sit in a row, no hamburger
   .nav__links {
     display: flex;
     align-items: center;
