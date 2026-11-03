@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bluetooth Speaker Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/grid.css" rel="stylesheet"/>
+    <link href="css/main.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="grid-con center-grid-con">
+      <section class="col-span-full">
+        <model-viewer src="model/speaker.glb" camera-controls tone-mapping="neutral" poster="images/poster.webp" shadow-intensity="1.31" exposure="1.2" camera-orbit="134.5deg 70.25deg 80.56m" field-of-view="30deg">
+              <button class="Hotspot" slot="hotspot-1" data-position="5.639172016022666m 0.1302329663308292m -12.620450058648807m" data-normal="1m 0m 1.224646852585168e-16m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation" id="hotspot-1">
+                  </div>
+              </button>
+              <button class="Hotspot" slot="hotspot-2" data-position="-4.442255709167679m 5.969126800089869m -0.6094281127929784m" data-normal="0.023985555885593486m 0.9993797671663596m 0.02578321328640053m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation" id="hotspot-2">
+                  </div>
+              </button>
+              <button class="Hotspot" slot="hotspot-3" data-position="-8.097022666532771m -3.1597989267757907m -8.492564935327419m" data-normal="-0.8173244506235314m 0.5750556395266582m -0.035940977470416476m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation" id="hotspot-3">
+                  </div>
+              </button>
+              <button class="Hotspot" slot="hotspot-4" data-position="1.884612792865319m -6.911650172529082m 12.631196158330926m" data-normal="0m -1m 0m" data-visibility-attribute="visible">
+                  <div class="HotspotAnnotation" id="hotspot-4">
+                  </div>
+              </button>
+            </model-viewer>  
+      </section> 
+    </div>
+  <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.4.0/model-viewer.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
