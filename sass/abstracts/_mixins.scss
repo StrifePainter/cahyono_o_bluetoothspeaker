@@ -1,14 +1,29 @@
-@mixin offset-shadow {
-  box-shadow: 6px 6px 0 #7d3408;
-}
+//Mixins
 
-@mixin checkerboard {
-  background: repeating-conic-gradient(#ee2a16 0 25%, #fbb08a 0 50%) 0 0 / 240px 240px;
-}
+//flex box mixins
 
-@mixin sticker-text {
-  -webkit-text-stroke: 0.14em #fff;
-  paint-order: stroke fill;
-  stroke-linejoin: round;
-  text-shadow: 3px 3px 0 #7d3408;
+@mixin flex-column {
+      display: flex;
+      flex-direction: column;
+}
+    
+@mixin flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+    
+@mixin flex-center-column {
+      @include flex-center;
+      flex-direction: column;
+}
+    
+@mixin flex-center-vert {
+      display: flex;
+      align-items: center;
+}
+    
+@mixin flex-center-horiz {
+      display: flex;
+      justify-content: center;
 }

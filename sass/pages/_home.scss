@@ -1,59 +1,12 @@
-@use "../abstracts";
+@use '../abstracts';
 
-.section {
-  position: relative;
-  padding: clamp(3rem, 8vw, 6rem) 0;
+.explore {
+  padding: 3rem 1.25rem;
 }
 
-.gradient-sunrise {
-  background: linear-gradient(120deg, #fbb27a 0%, #fcd34d 40%, #fdec5a 100%);
-}
-
-.gradient-lime {
-  background: linear-gradient(180deg, #fbb27a 0%, #fde85a 35%, #bfd934 100%);
-}
-
-.checker {
-  @include abstracts.checkerboard;
-}
-
-.hero-title-group {
-  align-self: center;
-}
-
-.hero-welcome {
-  display: block;
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
-  font-weight: 300;
-  line-height: 1.2;
-}
-
-.hero-welcome-indent {
-  padding-left: 1.5em;
-  margin-bottom: 0.5rem;
-}
-
-.hero-title {
-  display: inline-block;
-  padding: 0.05em 0.4em 0.15em;
-  border: 3px solid abstracts.$dark;
-  border-radius: 10px;
-  background: abstracts.$white;
-  font-size: clamp(3.5rem, 11vw, 6.5rem);
-  @include abstracts.offset-shadow;
-}
-
-.hero-art,
-.contact-art {
-  justify-self: center;
-  width: 100%;
-  max-width: 460px;
-  height: auto;
-}
-
-.section-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 2rem;
+.explore__title {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  text-align: center;
+  color: abstracts.$orange-dark;
 }
