@@ -1,0 +1,24 @@
+@use '../abstracts';
+
+// Info box under the model; image + text from the infoBoxes object
+.info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-top: 3px solid abstracts.$orange;
+}
+
+.info__icon {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.info__title {
+  font-size: 1.1rem;
+  color: abstracts.$orange-dark;
+}
+
+.info__text { font-size: 0.9rem; }
