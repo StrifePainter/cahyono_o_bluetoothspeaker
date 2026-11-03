@@ -1,5 +1,11 @@
-# Bluetooth Speaker Showcase
-This repo is to showcase the bluetooth speaker into the webpage with hotspots
+# Pulse: Bluetooth Speaker Promotional Page
+A promotional page for **Pulse**, a Bluetooth speaker. Modelled in Cinema 4D and shown with Google's `<model-viewer>` (AR-ready), with animated hotspots and info boxes.
+
+## Features
+- Orange themed, responsive layout!
+- `<model-viewer>` AR object with custom animated hotspot icons and a custom loader
+- GreenSock (GSAP) for the hero intro, hotspot pop-in, and info box transitions (Work in Progress)
+- SASS and Javascript integrated!
 
 ## Installation 💻
 None required, simply download .zip file and extract.
