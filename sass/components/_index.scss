@@ -1,2 +1,5 @@
-// Import variables from the main variables partial
+@forward 'nav';
+@forward 'hero';
 @forward 'ar-model';
+@forward 'loader';
+@forward 'info-panel';
