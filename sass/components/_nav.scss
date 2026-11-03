@@ -36,18 +36,10 @@
 
 .nav__toggle {
   display: none;
-  flex-direction: column;
-  gap: 5px;
-  padding: 8px;
-  background: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
+  background: url(../images/burger.svg) center / 28px no-repeat;
   cursor: pointer;
-
-  span {
-    width: 26px;
-    height: 3px;
-    border-radius: 2px;
-    background: abstracts.$white;
-    transition: transform 0.3s, opacity 0.3s;
-  }
 }
