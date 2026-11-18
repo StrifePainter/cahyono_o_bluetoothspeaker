@@ -1,0 +1,33 @@
+#xray {
+    position: relative;
+    aspect-ratio: 5/4;
+    background-image: url(..images/speaker.jpg); // replace the image later
+    background-size: cover;
+}
+
+#divisor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    aspect-ratio: 5/4;
+    background-image: url(//images/speaker-x-ray.jpg); // diff speaker colour image later
+    background-size: cover;
+    width: 50%;
+    height: 100%;
+}
+
+input[type=range] {
+    position: absolute;
+    top: 50%;
+}
+
+input[type=range] :: -webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: $orange;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
