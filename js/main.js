@@ -14,6 +14,28 @@ const infoImage = document.querySelector("#info-img");
 const infoTitle = document.querySelector("#info-title");
 const infoText = document.querySelector("#info-text");
 
+const canvas = document.querySelector("#explode-view");
+const context = canvas.getContext("2d");
+
+canvas.width = 1920;
+canvas.height = 1080;
+
+const frameCount = 450; //how many still frames do we have
+const images = []; //array to hold all of our images
+
+//lets create an object called buds to hold the current frame
+//we are going to animate its frame property
+const buds = {
+    frame: 0
+};
+
+//run a for loop to populate our images array
+for(let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    //images/explode_dynamicNumber.webp
+    img.src = `images/sequence/ToWebP/sequence_${(i + 1).toString().padStart(4, '0')}.webp`;
+    images.push(img);
+};
 const infoBoxes = {
   intro: {
     title: 'Meet Pulse',
@@ -43,6 +65,33 @@ const infoBoxes = {
 };
 
 // Functions
+
+
+gsap.to(buds, {
+  frame: frameCount - 1,
+  ease: "none",
+  snap: "frame",
+  scrollTrigger: {
+      trigger: "#explode-view",
+      pin: true,
+      start: "top top",
+      markers: true,
+      scrub: 1
+  },
+  onUpdate: render
+});
+
+//when the first image is loaded in the array, call the render fcuntion
+//so we don't have an empty canvas
+
+images[0].addEventListener("load", render);
+
+function render() {
+  context.clearRect(0,0, canvas.width, canvas.height);
+  //console.log(buds.frame);
+  //console.log(images[buds.frame]);
+  context.drawImage(images[buds.frame], 0, 0);
+}
 
 function updateInfoContent(data) {
   infoImage.src = data.image;
