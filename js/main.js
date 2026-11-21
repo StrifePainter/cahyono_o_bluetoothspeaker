@@ -3,6 +3,7 @@
 // Variables
 const divisor = document.querySelector("#divisor");
 const slider = document.querySelector("#slider");
+
 const viewer = document.querySelector("model-viewer");
 const hotspots = document.querySelectorAll(".Hotspot");
 const loader = document.querySelector(".progress-bar");
@@ -72,7 +73,7 @@ function moveDivisor() {
 }
 
 function resetSlider() {
-  slider.value = "%50";
+  slider.value = "50%";
 }
 
 gsap.to(buds, {
@@ -168,7 +169,7 @@ playHeroIntro();
 // Event Listeners
 
 slider.addEventListener ("input", moveDivisor);
-window.addEventListener ("load", resetSlider");
+window.addEventListener ("load", resetSlider);
   
 for (const hotspot of hotspots) {
   hotspot.addEventListener("click", selectHotspot);

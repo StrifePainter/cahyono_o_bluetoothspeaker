@@ -1,7 +1,9 @@
+@use "../abstracts/" as *;
+
 #xray {
     position: relative;
     aspect-ratio: 5/4;
-    background-image: url(..images/bluetooth-speaker-slider.jpg);
+    background-image: url(../images/bluetooth-speaker-slider.jpg);
     background-size: cover;
 }
 
@@ -10,7 +12,7 @@
     top: 0;
     left: 0;
     aspect-ratio: 5/4;
-    background-image: url(//images/bluetooth-speaker-slider-2.jpg);
+    background-image: url(../images/bluetooth-speaker-slider-2.jpg);
     background-size: cover;
     width: 50%;
     height: 100%;
@@ -29,7 +31,7 @@ input[type=range] {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: calc(100% = 20px);
+    width: calc(100% + 20px);
     left: -15px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -37,7 +39,7 @@ input[type=range] {
     background: transparent;
 }
 
-input[type=range] :: -webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 40px;
@@ -48,7 +50,7 @@ input[type=range] :: -webkit-slider-thumb {
     cursor: pointer;
 }
 
-input[type=range] :: -moz-range-thumb {
+input[type=range]::-moz-range-thumb {
     width: 40px;
     height: 40px;
     background: $orange;
