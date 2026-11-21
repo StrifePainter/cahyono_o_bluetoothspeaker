@@ -1,24 +1,8 @@
 (function initPulse() {
 
-
+// Variables
 const divisor = document.querySelector("#divisor");
 const slider = document.querySelector("#slider");
-
-function moveDivisor() {
-  divisor.style.width = `${slider.value}%`
-}
-
-function resetSlider() {
-  slider.value = "%50";
-}
-
-
-slider.addEventListener ("input", moveDivisor);
-window.addEventListener ("load", resetSlider");
-
-
-// Variables
-
 const viewer = document.querySelector("model-viewer");
 const hotspots = document.querySelectorAll(".Hotspot");
 const loader = document.querySelector(".progress-bar");
@@ -83,6 +67,13 @@ const infoBoxes = {
 
 // Functions
 
+function moveDivisor() {
+  divisor.style.width = `${slider.value}%`
+}
+
+function resetSlider() {
+  slider.value = "%50";
+}
 
 gsap.to(buds, {
   frame: frameCount - 1,
@@ -176,6 +167,9 @@ playHeroIntro();
 
 // Event Listeners
 
+slider.addEventListener ("input", moveDivisor);
+window.addEventListener ("load", resetSlider");
+  
 for (const hotspot of hotspots) {
   hotspot.addEventListener("click", selectHotspot);
 }
