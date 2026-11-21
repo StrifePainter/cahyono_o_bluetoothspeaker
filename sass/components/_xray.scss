@@ -1,42 +1,49 @@
 @use "../abstracts/" as *;
 
 #xray {
+    --ratio: 0.5;
+    --edge: calc(20px + (100% - 40px) * var(--ratio));
     position: relative;
     aspect-ratio: 5/4;
     background-image: url(../images/bluetooth-speaker-slider.jpg);
     background-size: cover;
+    background-position: center;
+
+    /* the white dividing line follows the thumb */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: calc(var(--edge) - 3px);
+        width: 6px;
+        height: 100%;
+        background: #fff;
+        pointer-events: none;
+    }
 }
 
 #divisor {
     position: absolute;
-    top: 0;
-    left: 0;
-    aspect-ratio: 5/4;
+    inset: 0;
     background-image: url(../images/bluetooth-speaker-slider-2.jpg);
     background-size: cover;
-    width: 50%;
-    height: 100%;
-
-    &::after {
-        content: '';
-        position: absolute;
-        right: 0px;
-        width: 6px;
-        height: 100%;
-        background: #fff;
-    }
+    background-position: center;
+    clip-path: inset(0 calc(100% - var(--edge)) 0 0);
+    pointer-events: none;
 }
 
 input[type=range] {
     position: absolute;
     top: 50%;
+    left: 0;
+    width: 100%;
+    margin: 0;
     transform: translateY(-50%);
-    width: calc(100% + 20px);
-    left: -15px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: transparent;
+    cursor: pointer;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -57,4 +64,14 @@ input[type=range]::-moz-range-thumb {
     border-radius: 50%;
     border: none;
     cursor: pointer;
+}
+
+input[type=range]:focus-visible::-webkit-slider-thumb {
+    outline: 3px solid $ink;
+    outline-offset: 3px;
+}
+
+input[type=range]:focus-visible::-moz-range-thumb {
+    outline: 3px solid $ink;
+    outline-offset: 3px;
 }
