@@ -15,9 +15,10 @@
       <nav>
         <ul class="navigation-links" id="nav-links">
           <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
           <li><a href="#explore">Explore</a></li>
           <li><a href="#explore">View in AR</a></li>
-          <li><a class="nav-cta" href="#explore">Pre-order</a></li>
+          <li><a class="nav-cta" href="#preorder">Pre-order</a></li>
         </ul>
       </nav>
       <button class="navigation-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links"></button>
@@ -38,7 +39,6 @@
         <h2 class="hero-title">What is Pulse?</h2>
         <p>Pulse is here to deliver exceptional sound, broadcasted at the highest quality and make it convenient for you. Our Bluetooth speaker is here to give you that travel friendly option to put out your music, compacted in this tiny yet powerful double-sided speaker. 
           <br>Our default on-brand orange is available, along with other colors you may choose from!</p>
-      </section>
 
         <!-- xray slider -->
         <div id="comparison-con">
@@ -47,11 +47,86 @@
             <input type="range" min="0" max="100" step=".2" value="50" id="slider" aria-label="Drag to compare the outside and the inside of the speaker">
           </div>
         </div>
+      </section>
 
       <!-- scroll animation-->
       <div class="col-span-full">
-            <canvas id="explode-view"></canvas> 
+        <canvas id="explode-view"></canvas>
+      </div>
+
+      <section class="feature" id="features">
+        <img
+          class="feature-image"
+          src="images/promo-3.webp"
+          loading="lazy"
+          alt="Close-up of the Pulse speaker's orange body with the Bluetooth and power buttons, under the words Pulse, feel the beat, on a purple background"
+        >
+        <div class="feature-text">
+          <p class="eyebrow">Tactile controls</p>
+          <h2 class="section-title">Your music, one press away</h2>
+          <p>
+            Three integrated tactile buttons make Pulse effortless to use.
+            They sit right where your thumb lands, so play, pause and pairing
+            are always at your fingertips.
+          </p>
         </div>
+      </section>
+
+      <section class="specs" id="specs">
+        <img
+          class="specs-banner"
+          src="images/promo-2.webp"
+          loading="lazy"
+          alt="The Pulse speaker with its orange strap, surrounded by orange sound waves and a ring of stars, with the word PULSE below"
+        >
+        <div class="specs-content">
+          <h2 class="section-title">Small footprint, effortless sound</h2>
+          <p class="specs-intro">
+            A high-output driver at the center, projecting from both sides of
+            the speaker for clear, room-filling sound.
+          </p>
+          <ul class="spec-grid">
+            <li class="spec">
+              <span class="spec-value">10W</span>
+              <span class="spec-label">of clear, room-filling sound</span>
+            </li>
+            <li class="spec">
+              <span class="spec-value">50mm</span>
+              <span class="spec-label">full-range driver</span>
+            </li>
+            <li class="spec">
+              <span class="spec-value">12 hrs</span>
+              <span class="spec-label">playback on a single charge</span>
+            </li>
+            <li class="spec">
+              <span class="spec-value">2.5 hrs</span>
+              <span class="spec-label">for a full USB-C recharge</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="feature feature-reverse feature-alt">
+        <img
+          class="feature-image feature-image-portrait"
+          src="images/promo-4.webp"
+          loading="lazy"
+          alt="The Pulse speaker with its silicone strap in front of a swirling rainbow background, with the word PULSE written twice"
+        >
+        <div class="feature-text">
+          <p class="eyebrow">Silicone wrapped</p>
+          <h2 class="section-title">Take it anywhere</h2>
+          <p>
+            Covered in high-grade silicone, Pulse stays protected, non-slip and
+            easy to press. The flexible strap lets you carry it on the go or
+            hang it up wherever you want.
+          </p>
+          <p>
+            Our default on-brand orange is available, along with other colors
+            you may choose from.
+          </p>
+        </div>
+      </section>
 
       <section class="explore" id="explore">
         <h2 class="explore-title">Explore Pulse</h2>
@@ -88,7 +163,25 @@
           </div>
         </div>
       </section>
+
+      <section class="cta" id="preorder">
+        <img
+          class="cta-image"
+          src="images/promo.webp"
+          loading="lazy"
+          alt="Close-up of the Pulse speaker's grille and buttons with the words drop down for Pulse"
+        >
+        <div class="cta-text">
+          <h2 class="section-title">Ready to feel the beat?</h2>
+          <p>Big, room-filling sound in a speaker you can take anywhere.</p>
+          <a class="btn" href="#">Pre-order Pulse</a>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Pulse. All rights reserved.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
