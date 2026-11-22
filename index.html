@@ -11,7 +11,7 @@
   </head>
   <body>
     <header class="nav" id="nav">
-      <a class="nav-logo" href="#home">Pulse</a> <!-- tentative bluetooth name -->
+      <a class="nav-logo" href="#home">Pulse</a>
       <nav>
         <ul class="navigation-links" id="nav-links">
           <li><a href="#home">Home</a></li>
@@ -33,24 +33,30 @@
         </div>
       </section>
 
+      <section class="about" id="about">
+        <div class="about-top">
+          <div class="about-intro">
+            <p class="eyebrow">About</p>
+            <h2 class="section-title">What is Pulse?</h2>
+            <p>Pulse is here to deliver exceptional sound, broadcasted at the highest quality and make it convenient for you. Our Bluetooth speaker is here to give you that travel friendly option to put out your music, compacted in this tiny yet powerful double-sided speaker.</p>
+            <p>Our default on-brand orange is available, along with other colors you may choose from!</p>
+          </div>
+          <img class="about-image" src="images/promo-5.webp" alt="bluetooth speaker in space that says wireless connection... out of this world! with the word PULSE.">
+        </div>
 
-      <section class="hero" id="about">
-        <img src="images/promo-5.webp" alt="bluetooth speaker in space that says wireless connection... out of this world! with the word PULSE.">
-        <h2 class="hero-title">What is Pulse?</h2>
-        <p>Pulse is here to deliver exceptional sound, broadcasted at the highest quality and make it convenient for you. Our Bluetooth speaker is here to give you that travel friendly option to put out your music, compacted in this tiny yet powerful double-sided speaker. 
-          <br>Our default on-brand orange is available, along with other colors you may choose from!</p>
-
-        <!-- xray slider -->
-        <div id="comparison-con">
-          <div id="xray">
-            <div id="divisor"></div>
-            <input type="range" min="0" max="100" step=".2" value="50" id="slider" aria-label="Drag to compare the outside and the inside of the speaker">
+        <div class="about-xray">
+          <p class="eyebrow">Same Style, Different Colour</p>
+          <p>Drag the slider to compare the outside and the inside of Pulse.</p>
+          <div id="comparison-con">
+            <div id="xray">
+              <div id="divisor"></div>
+              <input type="range" min="0" max="100" step=".2" value="50" id="slider" aria-label="Drag to compare the outside and the inside of the speaker">
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- scroll animation-->
-      <div class="col-span-full">
+      <div class="scroll-section">
         <canvas id="explode-view"></canvas>
       </div>
 
@@ -73,36 +79,31 @@
       </section>
 
       <section class="specs" id="specs">
-        <img
-          class="specs-banner"
-          src="images/promo-2.webp"
-          loading="lazy"
-          alt="The Pulse speaker with its orange strap, surrounded by orange sound waves and a ring of stars, with the word PULSE below"
-        >
+        <img class="specs-banner" src="images/promo-2.webp" loading="lazy" alt="The Pulse speaker with its orange strap, surrounded by orange sound waves and a ring of stars, with the word PULSE below">
         <div class="specs-content">
           <h2 class="section-title">Small footprint, effortless sound</h2>
           <p class="specs-intro">
             A high-output driver at the center, projecting from both sides of
             the speaker for clear, room-filling sound.
           </p>
-          <ul class="spec-grid">
-            <li class="spec">
-              <span class="spec-value">10W</span>
-              <span class="spec-label">of clear, room-filling sound</span>
-            </li>
-            <li class="spec">
-              <span class="spec-value">50mm</span>
-              <span class="spec-label">full-range driver</span>
-            </li>
-            <li class="spec">
-              <span class="spec-value">12 hrs</span>
-              <span class="spec-label">playback on a single charge</span>
-            </li>
-            <li class="spec">
-              <span class="spec-value">2.5 hrs</span>
-              <span class="spec-label">for a full USB-C recharge</span>
-            </li>
-          </ul>
+              <ul class="spec-grid"> <!-- stats-->
+              <li class="spec">
+                <span class="spec-value" data-count="10" data-suffix="W">10W</span>
+                <span class="spec-label">of clear, room-filling sound</span>
+              </li>
+              <li class="spec">
+                <span class="spec-value" data-count="50" data-suffix="mm">50mm</span>
+                <span class="spec-label">full-range driver</span>
+              </li>
+              <li class="spec">
+                <span class="spec-value" data-count="12" data-suffix=" hrs">12 hrs</span>
+                <span class="spec-label">playback on a single charge</span>
+              </li>
+              <li class="spec">
+                <span class="spec-value" data-count="2.5" data-decimals="1" data-suffix=" hrs">2.5 hrs</span>
+                <span class="spec-label">for a full USB-C recharge</span>
+              </li>
+            </ul>
         </div>
       </section>
 
@@ -173,7 +174,7 @@
         >
         <div class="cta-text">
           <h2 class="section-title">Ready to feel the beat?</h2>
-          <p>Big, room-filling sound in a speaker you can take anywhere.</p>
+          <p>Get in on the trend and don't miss out on the all new wireless speaker now!</p>
           <a class="btn" href="#">Pre-order Pulse</a>
         </div>
       </section>

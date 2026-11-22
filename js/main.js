@@ -81,10 +81,10 @@ gsap.to(buds, {
   ease: "none",
   snap: "frame",
   scrollTrigger: {
-      trigger: "#explode-view",
+      trigger: ".scroll-section",
       pin: true,
       start: "top top",
-      end: "+=3000", //how many pixels of scrolling the animation lasts
+      end: "+=3000",
       scrub: 1
   },
   onUpdate: render
@@ -164,13 +164,90 @@ function playHeroIntro() {
     .from(".hero .btn", { y: 20, autoAlpha: 0, duration: 0.5 }, "-=0.3");
 }
 
+function revealOnScroll() {
+  //text blocks slide up and fade in
+  const blocks = gsap.utils.toArray(".about-intro, .about-xray, .feature-text, .specs-content .section-title, .specs-intro, .cta-text");
+
+  for (const block of blocks) {
+    gsap.from(block, {
+      y: 40,
+      autoAlpha: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      scrollTrigger: { trigger: block, start: "top 85%" }
+    });
+  }
+
+  //images slide in from the side they sit on
+  const images = gsap.utils.toArray(".about-image, .feature-image, .cta-image");
+
+  for (const image of images) {
+    const isRight = image.matches(".about-image, .feature-reverse .feature-image");
+
+    gsap.from(image, {
+      x: isRight ? 60 : -60,
+      autoAlpha: 0,
+      duration: 0.9,
+      ease: "power2.out",
+      scrollTrigger: { trigger: image, start: "top 85%" }
+    });
+  }
+}
+
+function animateSpecs() {
+  //the four cards appear one after another
+  gsap.from(".spec", {
+    y: 40,
+    autoAlpha: 0,
+    duration: 0.6,
+    stagger: 0.12,
+    ease: "power2.out",
+    scrollTrigger: { trigger: ".spec-grid", start: "top 85%" }
+  });
+
+  //the numbers count up from 0
+  const values = document.querySelectorAll(".spec-value");
+
+  for (const value of values) {
+    const target = parseFloat(value.dataset.count);
+    const decimals = Number(value.dataset.decimals || 0);
+    const suffix = value.dataset.suffix;
+    const counter = { number: 0 };
+
+    value.textContent = (0).toFixed(decimals) + suffix;
+
+    gsap.to(counter, {
+      number: target,
+      duration: 1.5,
+      ease: "power1.out",
+      scrollTrigger: { trigger: ".spec-grid", start: "top 85%", once: true },
+      onUpdate: function () {
+        value.textContent = counter.number.toFixed(decimals) + suffix;
+      }
+    });
+  }
+}
+
+function startScrollAnimations() {
+  const motion = gsap.matchMedia();
+
+  motion.add("(prefers-reduced-motion: no-preference)", function () {
+    revealOnScroll();
+    animateSpecs();
+  });
+}
+
 showInfo("intro");
 playHeroIntro();
+startScrollAnimations();
 
 // Event Listeners
 
 slider.addEventListener ("input", moveDivisor);
 window.addEventListener ("load", resetSlider);
+window.addEventListener("load", function refreshTriggers() {
+  ScrollTrigger.refresh();
+});
 
 for (const hotspot of hotspots) {
   hotspot.addEventListener("click", selectHotspot);
