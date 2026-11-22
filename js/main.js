@@ -33,7 +33,7 @@ const buds = {
 gsap.registerPlugin(ScrollTrigger);
 for(let i = 0; i < frameCount; i++) {
     const img = new Image();
-    img.src = `images/ToWebP/sequence_${i.toString().padStart(5, '0')}.webp`;
+        img.src = `video/sequence_${i.toString().padStart(5, '0')}.webp`;
     images.push(img);
 };
 
