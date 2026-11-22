@@ -1,0 +1,45 @@
+@use '../abstracts';
+
+.about {
+  padding: 4rem max(1.25rem, calc((100% - #{abstracts.$content-width}) / 2));
+  background: abstracts.$white;
+  color: abstracts.$ink;
+  scroll-margin-top: abstracts.$nav-height;
+}
+
+.about-top {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about-intro p + p {
+  margin-top: 1rem;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(abstracts.$ink, 0.2);
+}
+
+.about-xray {
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
+#comparison-con {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(abstracts.$ink, 0.2);
+}
+
+@media (min-width: abstracts.$bp-tablet) {
+  .about-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}

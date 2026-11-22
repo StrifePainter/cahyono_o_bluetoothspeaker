@@ -1,33 +1,80 @@
+@use "../abstracts/" as *;
+
 #xray {
+    --ratio: 0.5;
+    --edge: calc(20px + (100% - 40px) * var(--ratio));
     position: relative;
     aspect-ratio: 5/4;
-    background-image: url(..images/speaker.jpg); // replace the image later
+    background-image: url(../images/bluetooth-speaker-slider.jpg);
     background-size: cover;
+    background-position: center;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: calc(var(--edge) - 3px);
+        z-index: 1;
+        width: 6px;
+        height: 100%;
+        background: #fff;
+        pointer-events: none;
+    }
 }
 
 #divisor {
     position: absolute;
-    top: 0;
-    left: 0;
-    aspect-ratio: 5/4;
-    background-image: url(//images/speaker-x-ray.jpg); // diff speaker colour image later
+    inset: 0;
+    z-index: 0;
+    background-image: url(../images/bluetooth-speaker-slider-2.jpg);
     background-size: cover;
-    width: 50%;
-    height: 100%;
+    background-position: center;
+    clip-path: inset(0 calc(100% - var(--edge)) 0 0);
+    pointer-events: none;
 }
 
 input[type=range] {
     position: absolute;
     top: 50%;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    transform: translateY(-50%);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
 }
 
-input[type=range] :: -webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    background: $orange;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: url(../images/hotspot.svg) center / contain no-repeat;
     border: none;
+    border-radius: 0;
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 2px 6px rgba($ink, 0.5));
     cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 40px;
+    height: 40px;
+    background: url(../images/hotspot.svg) center / contain no-repeat;
+    border: none;
+    border-radius: 0;
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 2px 6px rgba($ink, 0.5));
+    cursor: pointer;
+}
+
+input[type=range]:focus-visible::-webkit-slider-thumb {
+    outline: 3px solid $ink;
+    outline-offset: 3px;
+}
+
+input[type=range]:focus-visible::-moz-range-thumb {
+    outline: 3px solid $ink;
+    outline-offset: 3px;
 }

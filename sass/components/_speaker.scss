@@ -1,0 +1,19 @@
+@use '../abstracts';
+
+.scroll-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 2rem 1.25rem;
+  background: abstracts.$white;
+}
+
+#explode-view {
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  border: 5px solid abstracts.$orange;
+}
