@@ -8,8 +8,6 @@
     background-image: url(../images/bluetooth-speaker-slider.jpg);
     background-size: cover;
     background-position: center;
-
-    /* the white dividing line follows the thumb */
     &::after {
         content: '';
         position: absolute;
@@ -51,18 +49,20 @@ input[type=range]::-webkit-slider-thumb {
     appearance: none;
     width: 40px;
     height: 40px;
-    background: $orange;
-    border-radius: 50%;
+    background: url(../images/hotspot.svg) center / contain no-repeat;
     border: none;
+    border-radius: 0;
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 2px 6px rgba($ink, 0.5));
     cursor: pointer;
 }
 
 input[type=range]::-moz-range-thumb {
     width: 40px;
     height: 40px;
-    background: $orange;
-    border-radius: 50%;
+    background: url(../images/hotspot.svg) center / contain no-repeat;
     border: none;
+    border-radius: 0;
+    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 2px 6px rgba($ink, 0.5));
     cursor: pointer;
 }
 

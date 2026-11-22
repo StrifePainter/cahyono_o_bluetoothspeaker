@@ -15,4 +15,34 @@ h1, h2, h3, p { margin: 0; }
 
 img { max-width: 100%; display: block; }
 
-//setting default styles and spacing for page
+section[id] { scroll-margin-top: abstracts.$nav-height; }
+
+:focus-visible {
+  outline: 3px solid abstracts.$ink;
+  outline-offset: 3px;
+}
+
+.nav :focus-visible,
+.cta :focus-visible {
+  outline-color: abstracts.$white;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  background: abstracts.$white;
+  color: abstracts.$ink;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@include abstracts.reduced-motion {
+  html { scroll-behavior: auto; }
+}

@@ -1,6 +1,8 @@
 (function initPulse() {
 
 // Variables
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
 const xray = document.querySelector("#xray");
 const slider = document.querySelector("#slider");
 
@@ -22,21 +24,19 @@ const context = canvas.getContext("2d");
 canvas.width = 1280;
 canvas.height = 720;
 
-const frameCount = 640; 
-const images = []; 
-
+const frameCount = 640;
+const images = [];
 const buds = {
     frame: 0
 };
 
 gsap.registerPlugin(ScrollTrigger);
-
-
 for(let i = 0; i < frameCount; i++) {
     const img = new Image();
     img.src = `images/ToWebP/sequence_${i.toString().padStart(5, '0')}.webp`;
     images.push(img);
 };
+
 const infoBoxes = {
   intro: {
     title: 'Meet Pulse',
@@ -67,8 +67,35 @@ const infoBoxes = {
 
 // Functions
 
+function loadImage(img) {
+  img.src = img.dataset.src;
+  img.removeAttribute("data-src");
+}
+
+function lazyLoadImages() {
+  const lazyImages = document.querySelectorAll("img[data-src]");
+  if (!("IntersectionObserver" in window)) {
+    lazyImages.forEach(loadImage);
+    return;
+  }
+
+  const observer = new IntersectionObserver(function checkImages(entries) {
+    entries.forEach(function checkEntry(entry) {
+      if (entry.isIntersecting) {
+        loadImage(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "300px 0px" });
+
+  lazyImages.forEach(function watchImage(img) {
+    observer.observe(img);
+  });
+}
+
 function moveDivisor() {
   xray.style.setProperty("--ratio", slider.value / 100);
+  slider.setAttribute("aria-valuetext", Math.round(slider.value) + "% of the way across, showing the inside on the left");
 }
 
 function resetSlider() {
@@ -84,7 +111,7 @@ gsap.to(buds, {
       trigger: ".scroll-section",
       pin: true,
       start: "top top",
-      end: "+=3000",
+      end: "+=3000", 
       scrub: 1
   },
   onUpdate: render
@@ -94,7 +121,6 @@ images[0].addEventListener("load", render);
 
 function render() {
   const img = images[buds.frame];
-
   if (!img.complete || img.naturalWidth === 0) {
     return;
   }
@@ -111,6 +137,10 @@ function updateInfoContent(data) {
 
 function showInfo(key) {
   const data = infoBoxes[key];
+  if (reduceMotion.matches) {
+    updateInfoContent(data);
+    return;
+  }
 
   gsap.timeline()
     .to(info, { autoAlpha: 0, y: 16, duration: 0.2, onComplete: updateInfoContent, onCompleteParams: [data] })
@@ -123,8 +153,10 @@ function selectHotspot(event) {
   for (const hotspot of hotspots) {
     if (hotspot === clickedHotspot) {
       hotspot.classList.add("active");
+      hotspot.setAttribute("aria-pressed", "true");
     } else {
       hotspot.classList.remove("active");
+      hotspot.setAttribute("aria-pressed", "false");
     }
   }
 
@@ -143,6 +175,10 @@ function updateProgress(event) {
 }
 
 function revealHotspots() {
+  if (reduceMotion.matches) {
+    return;
+  }
+
   gsap.from(hotspots, { scale: 0, duration: 0.6, stagger: 0.15, ease: "back.out(2)" });
 }
 
@@ -156,7 +192,18 @@ function closeNav() {
   navToggle.setAttribute("aria-expanded", false);
 }
 
+function handleKeydown(event) {
+  if (event.key === "Escape" && nav.classList.contains("nav--open")) {
+    closeNav();
+    navToggle.focus();
+  }
+}
+
 function playHeroIntro() {
+  if (reduceMotion.matches) {
+    return;
+  }
+
   gsap.timeline({ defaults: { ease: "power3.out" } })
     .from(".nav", { yPercent: -100, duration: 0.6 })
     .from(".hero-title", { y: 40, autoAlpha: 0, duration: 0.8 }, "-=0.2")
@@ -165,7 +212,6 @@ function playHeroIntro() {
 }
 
 function revealOnScroll() {
-  //text blocks slide up and fade in
   const blocks = gsap.utils.toArray(".about-intro, .about-xray, .feature-text, .specs-content .section-title, .specs-intro, .cta-text");
 
   for (const block of blocks) {
@@ -178,10 +224,9 @@ function revealOnScroll() {
     });
   }
 
-  //images slide in from the side they sit on
-  const images = gsap.utils.toArray(".about-image, .feature-image, .cta-image");
+  const sideImages = gsap.utils.toArray(".about-image, .feature-image, .cta-image");
 
-  for (const image of images) {
+  for (const image of sideImages) {
     const isRight = image.matches(".about-image, .feature-reverse .feature-image");
 
     gsap.from(image, {
@@ -195,7 +240,6 @@ function revealOnScroll() {
 }
 
 function animateSpecs() {
-  //the four cards appear one after another
   gsap.from(".spec", {
     y: 40,
     autoAlpha: 0,
@@ -205,7 +249,6 @@ function animateSpecs() {
     scrollTrigger: { trigger: ".spec-grid", start: "top 85%" }
   });
 
-  //the numbers count up from 0
   const values = document.querySelectorAll(".spec-value");
 
   for (const value of values) {
@@ -237,6 +280,11 @@ function startScrollAnimations() {
   });
 }
 
+if (reduceMotion.matches) {
+  viewer.removeAttribute("auto-rotate");
+}
+
+lazyLoadImages();
 showInfo("intro");
 playHeroIntro();
 startScrollAnimations();
@@ -260,5 +308,6 @@ for (const link of navLinks) {
 viewer.addEventListener("progress", updateProgress);
 viewer.addEventListener("load", revealHotspots);
 navToggle.addEventListener("click", toggleNav);
+document.addEventListener("keydown", handleKeydown);
 
 })();
