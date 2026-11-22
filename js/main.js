@@ -1,7 +1,7 @@
 (function initPulse() {
 
 // Variables
-const divisor = document.querySelector("#divisor");
+const xray = document.querySelector("#xray");
 const slider = document.querySelector("#slider");
 
 const viewer = document.querySelector("model-viewer");
@@ -19,23 +19,22 @@ const infoText = document.querySelector("#info-text");
 const canvas = document.querySelector("#explode-view");
 const context = canvas.getContext("2d");
 
-canvas.width = 1920;
-canvas.height = 1080;
+canvas.width = 1280;
+canvas.height = 720;
 
-const frameCount = 450; //how many still frames do we have
-const images = []; //array to hold all of our images
+const frameCount = 640; 
+const images = []; 
 
-//lets create an object called buds to hold the current frame
-//we are going to animate its frame property
 const buds = {
     frame: 0
 };
 
-//run a for loop to populate our images array
+gsap.registerPlugin(ScrollTrigger);
+
+
 for(let i = 0; i < frameCount; i++) {
     const img = new Image();
-    //images/explode_dynamicNumber.webp
-    img.src = `images/sequence/ToWebP/sequence_${(i + 1).toString().padStart(4, '0')}.webp`;
+    img.src = `images/ToWebP/sequence_${i.toString().padStart(5, '0')}.webp`;
     images.push(img);
 };
 const infoBoxes = {
@@ -69,11 +68,12 @@ const infoBoxes = {
 // Functions
 
 function moveDivisor() {
-  divisor.style.width = `${slider.value}%`
+  xray.style.setProperty("--ratio", slider.value / 100);
 }
 
 function resetSlider() {
-  slider.value = "50%";
+  slider.value = 50;
+  moveDivisor();
 }
 
 gsap.to(buds, {
@@ -84,22 +84,23 @@ gsap.to(buds, {
       trigger: "#explode-view",
       pin: true,
       start: "top top",
-      markers: true,
+      end: "+=3000", //how many pixels of scrolling the animation lasts
       scrub: 1
   },
   onUpdate: render
 });
 
-//when the first image is loaded in the array, call the render fcuntion
-//so we don't have an empty canvas
-
 images[0].addEventListener("load", render);
 
 function render() {
-  context.clearRect(0,0, canvas.width, canvas.height);
-  //console.log(buds.frame);
-  //console.log(images[buds.frame]);
-  context.drawImage(images[buds.frame], 0, 0);
+  const img = images[buds.frame];
+
+  if (!img.complete || img.naturalWidth === 0) {
+    return;
+  }
+
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(img, 0, 0, canvas.width, canvas.height);
 }
 
 function updateInfoContent(data) {
@@ -170,7 +171,7 @@ playHeroIntro();
 
 slider.addEventListener ("input", moveDivisor);
 window.addEventListener ("load", resetSlider);
-  
+
 for (const hotspot of hotspots) {
   hotspot.addEventListener("click", selectHotspot);
 }
