@@ -1,0 +1,157 @@
+@use '../abstracts';
+
+.feature,
+.specs-content,
+.cta {
+  padding: 4rem max(1.25rem, calc((100% - #{abstracts.$content-width}) / 2));
+}
+
+.feature,
+.specs,
+.cta {
+  scroll-margin-top: abstracts.$nav-height;
+}
+
+.section-title {
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: abstracts.$orange-dark;
+}
+
+.eyebrow {
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: abstracts.$orange;
+}
+
+.feature {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  background: abstracts.$white;
+}
+
+.feature-alt {
+  background: abstracts.$cream;
+}
+
+.feature-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(abstracts.$ink, 0.2);
+}
+
+.feature-image-portrait {
+  max-width: 360px;
+  justify-self: center;
+}
+
+.feature-text p + p {
+  margin-top: 1rem;
+}
+
+.specs-banner {
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+.specs-content {
+  background: abstracts.$cream;
+  text-align: center;
+}
+
+.specs-intro {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1rem;
+  border-radius: 16px;
+  background: abstracts.$white;
+  box-shadow: 0 8px 20px rgba(abstracts.$ink, 0.08);
+}
+
+.spec-value {
+  font-size: clamp(1.8rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: abstracts.$orange-dark;
+}
+
+.spec-label {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.cta {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  background: abstracts.$ink;
+  color: abstracts.$white;
+}
+
+.cta .section-title {
+  color: abstracts.$white;
+}
+
+.cta-image {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  justify-self: center;
+  border-radius: 20px;
+}
+
+.cta-text p {
+  margin-bottom: 1.5rem;
+}
+
+.cta .btn {
+  background: abstracts.$orange;
+  color: abstracts.$white;
+}
+
+.site-footer {
+  padding: 2rem 1.25rem;
+  background: abstracts.$ink-deep;
+  color: rgba(abstracts.$white, 0.7);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (min-width: abstracts.$bp-tablet) {
+  .feature,
+  .cta {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .feature-reverse .feature-image {
+    order: 2;
+  }
+
+  .spec-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
